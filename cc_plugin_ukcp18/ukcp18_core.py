@@ -36,9 +36,11 @@ class UKCP18CoreCheck(BaseNCCheck):
         """
         Verifies the base metadata in the global attributes.
         """
-        attrs_to_check = [('source', 'label'),
-                          ('frequency', 'name'),
-                          ('institution_id', 'label')
+        attrs_to_check = [('collection', 'label'),
+                          ('frequency', 'label'),
+                          ('institution_id', 'label'),
+                          ('nominal_resolution', 'label'),
+                          ('project', 'label')
                           ]
 
         level = BaseCheck.MEDIUM
@@ -46,11 +48,12 @@ class UKCP18CoreCheck(BaseNCCheck):
         score = 0
         messages = []
 
-        for attr, property in attrs_to_check:
-            # NOTE: the `property` refers to which part of the CV we want to
+        for attr, property_ in attrs_to_check:
+            # NOTE: the `property_` refers to which part of the CV we want to
             # check against.
+
             value = self.vocabs.check_global_attribute(
-                ds, attr, property=property)
+                ds, attr, property=property_)
 
             score += value
             out_of += 2
