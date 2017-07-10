@@ -32,8 +32,9 @@ setup(name                 = "cc-plugin-ukcp18",
         ],
     entry_points         = {
         'compliance_checker.suites': [
-            'ukcp18-core = cc_plugin_ukcp18.ukcp18_core:UKCP18CoreCheck',
-            'ukcp18-station = cc_plugin_ukcp18.ukcp18_station:UKCP18StationCheck'
+            'ukcp18-file-info = cc_plugin_ukcp18.ukcp18_file_info:UKCP18FileInfoCheck',
+            'ukcp18-file-structure = cc_plugin_ukcp18.ukcp18_file_structure:UKCP18FileStructureCheck',
+            'ukcp18-global-attrs = cc_plugin_ukcp18.ukcp18_global_attrs:UKCP18GlobalAttrsCheck'
         ]
     }
 )
