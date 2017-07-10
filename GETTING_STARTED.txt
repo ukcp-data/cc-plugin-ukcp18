@@ -30,10 +30,11 @@ $ compliance-checker --test ukcp18-file-info --test ukcp18-file-structure --test
 
 ## Running the unit tests
 
-To run unit tests:
+To run the `checklib` unit tests, do:
 
 ```
 $ source setup_env.sh
+$ cd ../check-maker/
 $ pip install pytest
 $ py.test
 ```
