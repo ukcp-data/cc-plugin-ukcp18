@@ -18,7 +18,8 @@ writer=https://github.com/ukcp-data/pyessv-writer
 plugin=https://github.com/ukcp-data/cc-plugin-ukcp18
 checker=https://github.com/agstephens/compliance-checker
 cvs=https://github.com/ukcp-data/UKCP18_CVs
-checklib=https://github.com/agstephens/check-maker
+checklib=https://github.com/cedadev/compliance-check-lib
+checkmaker=https://github.com/cedadev/compliance-check-maker
 
 if [ $INSTALL ]; then
     virtualenv venv
@@ -29,7 +30,7 @@ source venv/bin/activate
 if [ $INSTALL ]; then
     pip install pyessv
 
-    for pkg in $writer $plugin $checker $cvs $checklib; do
+    for pkg in $writer $plugin $checker $cvs $checklib $checkmaker; do
         git clone $pkg
     done
 fi
@@ -55,7 +56,7 @@ fi
 python setup.py develop
 
 echo "Testing..."
-export PYTHONPATH=$PYTHONPATH:../check-maker
+export PYTHONPATH=$PYTHONPATH:../compliance-check-lib
 compliance-checker --test ukcp18-file-info --test ukcp18-file-structure --test ukcp18-global-attrs cc_plugin_ukcp18/tests/data/ukcp18/test_cdl_global_atts.nc
 
 cd ../
@@ -63,7 +64,7 @@ echo "Creating setup_env.sh script"
 script=setup_env.sh
 echo "#!/bin/bash" > $script
 echo "source venv/bin/activate" >> $script
-echo "export PYTHONPATH=$PYTHONPATH:../check-maker" >> $script
+echo "export PYTHONPATH=$PYTHONPATH:../compliance-check-lib" >> $script
 echo "cd cc-plugin-ukcp18/" >> $script
 
 echo "Set up your environment with:"
