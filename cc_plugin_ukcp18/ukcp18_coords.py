@@ -28,12 +28,12 @@ class UKCP18CoordinatesCheck(BaseNCCheck):
 
     
     def check_cc01(self, ds):
-        return check_package.VariableExistsInFileCheck(kwargs={'var_id': 'lon'},
+        return check_package.VariableExistsInFileCheck(kwargs={'var_id': 'longitude'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
     def check_cc02(self, ds):
-        return check_package.VariableRangeCheck(kwargs={'var_id': 'lon', 'minimum': -180.0, 'maximum': '180.'},
+        return check_package.VariableRangeCheck(kwargs={'var_id': 'longitude', 'minimum': -180.0, 'maximum': '180.'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
