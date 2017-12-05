@@ -34,7 +34,8 @@ setup(name                 = "cc-plugin-ukcp18",
         'compliance_checker.suites': [
             'ukcp18-file-info = cc_plugin_ukcp18.ukcp18_file_info:UKCP18FileInfoCheck',
             'ukcp18-file-structure = cc_plugin_ukcp18.ukcp18_file_structure:UKCP18FileStructureCheck',
-            'ukcp18-global-attrs = cc_plugin_ukcp18.ukcp18_global_attrs:UKCP18GlobalAttrsCheck'
+            'ukcp18-global-attrs = cc_plugin_ukcp18.ukcp18_global_attrs:UKCP18GlobalAttrsCheck',
+            'ukcp18-coords = cc_plugin_ukcp18.ukcp18_coords:UKCP18CoordinatesCheck'
         ]
     }
 )

@@ -22,15 +22,12 @@ class UKCP18FileStructureCheck(BaseNCCheck):
     register_checker = True
     name = 'ukcp18-file-structure'
 
-    @classmethod
-    def make_result(cls, level, score, out_of, name, messages):
-        return Result(level, (score, out_of), name, messages)
 
     def setup(self, ds):
         pass
 
     
-    def check_fs03(self, ds):
+    def check_fs01(self, ds):
         return check_package.OneMainVariablePerFileCheck(kwargs={},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)

@@ -22,9 +22,6 @@ class UKCP18GlobalAttrsCheck(BaseNCCheck):
     register_checker = True
     name = 'ukcp18-global-attrs'
 
-    @classmethod
-    def make_result(cls, level, score, out_of, name, messages):
-        return Result(level, (score, out_of), name, messages)
 
     def setup(self, ds):
         pass
@@ -46,7 +43,7 @@ class UKCP18GlobalAttrsCheck(BaseNCCheck):
                                                     vocabulary_ref="")(ds)
     
     def check_cr04(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'EUSTACE', 'attribute': 'project_id'},
+        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'UKCP18', 'attribute': 'project_id'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
