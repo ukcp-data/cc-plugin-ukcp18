@@ -107,3 +107,8 @@ class UKCP18GlobalAttrsCheck(BaseNCCheck):
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
     
+    def check_cr17(self, ds):
+        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'dataset_id', 'vocab_lookup': 'canonical_name'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="ukcp:ukcp18")(ds)
+    

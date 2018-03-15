@@ -32,3 +32,8 @@ class UKCP18FileStructureCheck(BaseNCCheck):
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
+    def check_fs02(self, ds):
+        return check_package.NetCDFFormatCheck(kwargs={'format': 'NETCDF4_CLASSIC'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="")(ds)
+    

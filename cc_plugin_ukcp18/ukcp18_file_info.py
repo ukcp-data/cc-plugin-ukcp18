@@ -29,7 +29,7 @@ class UKCP18FileInfoCheck(object):
     
     def check_fi01(self, ds):
         return check_package.FileSizeCheck(kwargs={'threshold': 2, 'strictness': 'soft'},
-                                                    level="MEDIUM",
+                                                    level="LOW",
                                                     vocabulary_ref="")(ds.filepath())
     
     def check_fi02(self, ds):
