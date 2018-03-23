@@ -28,7 +28,7 @@ class UKCP18GlobalAttrsLS1Check(BaseNCCheck):
 
     
     def check_gatls1_001(self, ds):
-        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'var_id,scenario,collection,domain,resolution,coordinate,frequency,regex', 'extension': '.nc'},
+        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'variable~scenario~collection~domain~resolution~coordinate~frequency~regex:', 'extension': '.nc', 'ignore_attr_checks': ['variable']},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
