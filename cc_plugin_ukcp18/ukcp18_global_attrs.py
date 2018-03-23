@@ -27,88 +27,58 @@ class UKCP18GlobalAttrsCheck(BaseNCCheck):
         pass
 
     
-    def check_cr01(self, ds):
-        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'institution_id,realm,frequency', 'extension': '.nc'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="ukcp:ukcp18")(ds)
-    
-    def check_cr02(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'CF-1\\.6', 'attribute': 'Conventions'},
+    def check_gatc_001(self, ds):
+        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'CF-1\\.5', 'attribute': 'Conventions'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr03(self, ds):
+    def check_gatc_002(self, ds):
         return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'source'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr04(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'UKCP18', 'attribute': 'project_id'},
+    def check_gatc_003(self, ds):
+        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'UKCP18', 'attribute': 'project'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr05(self, ds):
+    def check_gatc_004(self, ds):
         return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'contact'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr06(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'history'},
-                                                    level="MEDIUM",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_cr07(self, ds):
+    def check_gatc_005(self, ds):
         return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'references'},
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr08(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'product_version'},
+    def check_gatc_006(self, ds):
+        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'v\\d{8}', 'attribute': 'version'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr09(self, ds):
+    def check_gatc_007(self, ds):
         return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'title'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr10(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{20,}', 'attribute': 'summary'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_cr11(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'creator_name'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_cr12(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.+@.+\\..+', 'attribute': 'creator_email'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_cr13(self, ds):
-        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'frequency', 'vocab_lookup': 'canonical_name'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="ukcp:ukcp18")(ds)
-    
-    def check_cr14(self, ds):
-        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'institution_id', 'vocab_lookup': 'canonical_name'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="ukcp:ukcp18")(ds)
-    
-    def check_cr15(self, ds):
-        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'institution', 'vocab_lookup': 'description'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="ukcp:ukcp18")(ds)
-    
-    def check_cr16(self, ds):
+    def check_gatc_008(self, ds):
         return check_package.GlobalAttrRegexCheck(kwargs={'regex': '\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*', 'attribute': 'creation_date'},
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
     
-    def check_cr17(self, ds):
-        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'dataset_id', 'vocab_lookup': 'canonical_name'},
+    def check_gatc_009(self, ds):
+        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'institution_id', 'vocab_lookup': 'label'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="ukcp:ukcp18")(ds)
+    
+    def check_gatc_010(self, ds):
+        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'Met Office Hadley Centre \\(MOHC\\), FitzRoy Road, Exeter, Devon, EX1 3PB, UK\\.', 'attribute': 'institution'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="ukcp:ukcp18")(ds)
+    
+    def check_gatc_011(self, ds):
+        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'domain', 'vocab_lookup': 'canonical_name'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     

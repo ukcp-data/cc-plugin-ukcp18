@@ -27,12 +27,7 @@ class UKCP18FileStructureCheck(BaseNCCheck):
         pass
 
     
-    def check_fs01(self, ds):
-        return check_package.OneMainVariablePerFileCheck(kwargs={},
-                                                    level="HIGH",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_fs02(self, ds):
+    def check_fstc_001(self, ds):
         return check_package.NetCDFFormatCheck(kwargs={'format': 'NETCDF4_CLASSIC'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)

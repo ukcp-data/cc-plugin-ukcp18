@@ -27,17 +27,17 @@ class UKCP18FileInfoCheck(object):
         pass
 
     
-    def check_fi01(self, ds):
+    def check_flic_001(self, ds):
         return check_package.FileSizeCheck(kwargs={'threshold': 2, 'strictness': 'soft'},
                                                     level="LOW",
                                                     vocabulary_ref="")(ds.filepath())
     
-    def check_fi02(self, ds):
+    def check_flic_002(self, ds):
         return check_package.FileSizeCheck(kwargs={'threshold': 4, 'strictness': 'hard'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds.filepath())
     
-    def check_fi03(self, ds):
+    def check_flic_003(self, ds):
         return check_package.FileNameStructureCheck(kwargs={'delimiter': '_', 'extension': '.nc'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds.filepath())

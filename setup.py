@@ -32,10 +32,16 @@ setup(name                 = "cc-plugin-ukcp18",
         ],
     entry_points         = {
         'compliance_checker.suites': [
+            'ukcp18-coords = cc_plugin_ukcp18.ukcp18_coords:UKCP18CoordinatesLatLonCheck',
             'ukcp18-file-info = cc_plugin_ukcp18.ukcp18_file_info:UKCP18FileInfoCheck',
             'ukcp18-file-structure = cc_plugin_ukcp18.ukcp18_file_structure:UKCP18FileStructureCheck',
             'ukcp18-global-attrs = cc_plugin_ukcp18.ukcp18_global_attrs:UKCP18GlobalAttrsCheck',
-            'ukcp18-coords = cc_plugin_ukcp18.ukcp18_coords:UKCP18CoordinatesCheck'
+            'ukcp18-global-attrs-ls1 = cc_plugin_ukcp18.ukcp18_global_attrs_ls1:UKCP18GlobalAttrsLS1Check',
+            'ukcp18-land-main-variable = cc_plugin_ukcp18.ukcp18_land_main_variable:UKCP18LandMainVariableCheck',
+            'ukcp18-latlon-file = cc_plugin_ukcp18.ukcp18_latlon_file:UKCP18LatLonFileCheck',
+            'ukcp18-osgb-file = cc_plugin_ukcp18.ukcp18_osgb_file:UKCP18OSGBFileCheck',
+            'ukcp18-percentile-file = cc_plugin_ukcp18.ukcp18_percentile_file:UKCP18PercentileFileCheck',
+            'ukcp18-sample-file = cc_plugin_ukcp18.ukcp18_sample_file:UKCP18SampleFileCheck',
         ]
     }
 )
