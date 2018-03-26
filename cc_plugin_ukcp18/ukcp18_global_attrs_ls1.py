@@ -15,7 +15,7 @@ from compliance_checker.base import Result, BaseNCCheck
 os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 
 # Import checklib
-import checklib.register.nc_file_checks_register as check_package
+import checklib.checks
 
 
 class UKCP18GlobalAttrsLS1Check(BaseNCCheck):
@@ -23,22 +23,23 @@ class UKCP18GlobalAttrsLS1Check(BaseNCCheck):
     name = 'ukcp18-global-attrs-ls1'
 
 
+
     def setup(self, ds):
         pass
 
     
     def check_gatls1_001(self, ds):
-        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'variable~scenario~collection~domain~resolution~coordinate~frequency~regex:', 'extension': '.nc', 'ignore_attr_checks': ['variable']},
+        return checklib.checks.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'variable~scenario~collection~domain~resolution~coordinate~frequency~regex:', 'extension': '.nc', 'ignore_attr_checks': ['variable']},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
     def check_gatls1_002(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': 'land-prob', 'attribute': 'collection'},
+        return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': 'land-prob', 'attribute': 'collection'},
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
     
     def check_gatls1_003(self, ds):
-        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'frequency', 'vocab_lookup': 'canonical_name'},
+        return checklib.checks.GlobalAttrVocabCheck(kwargs={'attribute': 'frequency', 'vocab_lookup': 'canonical_name'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     

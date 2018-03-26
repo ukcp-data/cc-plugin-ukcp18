@@ -15,7 +15,7 @@ from compliance_checker.base import Result, BaseNCCheck
 os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 
 # Import checklib
-import checklib.register.nc_file_checks_register as check_package
+import checklib.checks
 
 
 class UKCP18FileStructureCheck(BaseNCCheck):
@@ -23,12 +23,13 @@ class UKCP18FileStructureCheck(BaseNCCheck):
     name = 'ukcp18-file-structure'
 
 
+
     def setup(self, ds):
         pass
 
     
     def check_fstc_001(self, ds):
-        return check_package.NetCDFFormatCheck(kwargs={'format': 'NETCDF4_CLASSIC'},
+        return checklib.checks.NetCDFFormatCheck(kwargs={'format': 'NETCDF4_CLASSIC'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     

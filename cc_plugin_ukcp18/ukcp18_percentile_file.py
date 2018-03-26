@@ -15,7 +15,7 @@ from compliance_checker.base import Result, BaseNCCheck
 os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 
 # Import checklib
-import checklib.register.nc_coords_checks_register as check_package
+import checklib.checks
 
 
 class UKCP18PercentileFileCheck(BaseNCCheck):
@@ -23,12 +23,13 @@ class UKCP18PercentileFileCheck(BaseNCCheck):
     name = 'ukcp18-percentile-file'
 
 
+
     def setup(self, ds):
         pass
 
     
     def check_perc_001(self, ds):
-        return check_package.NCCoordVarHasValuesInVocabCheck(kwargs={'var_id': 'percentile'},
+        return checklib.checks.NCCoordVarHasValuesInVocabCheck(kwargs={'var_id': 'percentile'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     

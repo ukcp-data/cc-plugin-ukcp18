@@ -15,7 +15,8 @@ from compliance_checker.base import Result, GenericFile
 os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 
 # Import checklib
-import checklib.register.file_checks_register as check_package
+import checklib.checks
+
 
 class UKCP18FileInfoCheck(object):
     register_checker = True
@@ -28,17 +29,17 @@ class UKCP18FileInfoCheck(object):
 
     
     def check_flic_001(self, ds):
-        return check_package.FileSizeCheck(kwargs={'threshold': 2, 'strictness': 'soft'},
+        return checklib.checks.FileSizeCheck(kwargs={'threshold': 2, 'strictness': 'soft'},
                                                     level="LOW",
                                                     vocabulary_ref="")(ds.filepath())
     
     def check_flic_002(self, ds):
-        return check_package.FileSizeCheck(kwargs={'threshold': 4, 'strictness': 'hard'},
+        return checklib.checks.FileSizeCheck(kwargs={'threshold': 4, 'strictness': 'hard'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds.filepath())
     
     def check_flic_003(self, ds):
-        return check_package.FileNameStructureCheck(kwargs={'delimiter': '_', 'extension': '.nc'},
+        return checklib.checks.FileNameStructureCheck(kwargs={'delimiter': '_', 'extension': '.nc'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds.filepath())
     

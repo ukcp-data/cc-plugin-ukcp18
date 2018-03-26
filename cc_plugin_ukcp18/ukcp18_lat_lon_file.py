@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-cc_plugin_ukcp18.ukcp18_osgb_file
+cc_plugin_ukcp18.ukcp18_lat_lon_file
 
-Compliance Test Suite: Check content of UKCP18 OSGB files
+Compliance Test Suite: Check content of UKCP18 Lat/Lon files
 """
 
 import os
@@ -18,9 +18,9 @@ os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 import checklib.checks
 
 
-class UKCP18OSGBFileCheck(BaseNCCheck):
+class UKCP18LatLonFileCheck(BaseNCCheck):
     register_checker = True
-    name = 'ukcp18-osgb-file'
+    name = 'ukcp18-lat-lon-file'
 
 
 
@@ -28,17 +28,17 @@ class UKCP18OSGBFileCheck(BaseNCCheck):
         pass
 
     
-    def check_osgbf_001(self, ds):
-        return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'projection_x_coordinate'},
+    def check_latlonf_001(self, ds):
+        return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'longitude'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_osgbf_002(self, ds):
-        return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'projection_y_coordinate'},
+    def check_latlonf_002(self, ds):
+        return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'latitude'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_osgbf_003(self, ds):
+    def check_latlonf_003(self, ds):
         return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'time'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)

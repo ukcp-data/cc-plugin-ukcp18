@@ -15,7 +15,7 @@ from compliance_checker.base import Result, BaseNCCheck
 os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 
 # Import checklib
-import checklib.register.nc_coords_checks_register as check_package
+import checklib.checks
 
 
 class UKCP18SampleFileCheck(BaseNCCheck):
@@ -23,12 +23,13 @@ class UKCP18SampleFileCheck(BaseNCCheck):
     name = 'ukcp18-sample-file'
 
 
+
     def setup(self, ds):
         pass
 
     
     def check_sample_001(self, ds):
-        return check_package.NCCoordVarHasLengthInVocabCheck(kwargs={'var_id': 'sample'},
+        return checklib.checks.NCCoordVarHasLengthInVocabCheck(kwargs={'var_id': 'sample'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
