@@ -21,7 +21,8 @@ import checklib.checks
 class UKCP18CoordinatesLatLonCheck(BaseNCCheck):
     register_checker = True
     name = 'ukcp18-coordinates-lat-lon'
-
+    _cc_spec = 'ukcp18-coordinates-lat-lon'
+    _cc_spec_version = '0.2'
 
 
     def setup(self, ds):

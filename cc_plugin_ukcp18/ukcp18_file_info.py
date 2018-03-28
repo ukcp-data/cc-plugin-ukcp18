@@ -21,6 +21,8 @@ import checklib.checks
 class UKCP18FileInfoCheck(object):
     register_checker = True
     name = 'ukcp18-file-info'
+    _cc_spec = 'ukcp18-file-info'
+    _cc_spec_version = '0.2'
     supported_ds = [GenericFile, Dataset]
 
 

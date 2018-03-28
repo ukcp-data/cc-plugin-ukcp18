@@ -21,7 +21,8 @@ import checklib.checks
 class UKCP18OSGBFileCheck(BaseNCCheck):
     register_checker = True
     name = 'ukcp18-osgb-file'
-
+    _cc_spec = 'ukcp18-osgb-file'
+    _cc_spec_version = '0.2'
 
 
     def setup(self, ds):

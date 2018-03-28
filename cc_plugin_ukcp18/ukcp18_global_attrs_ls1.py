@@ -21,7 +21,8 @@ import checklib.checks
 class UKCP18GlobalAttrsLS1Check(BaseNCCheck):
     register_checker = True
     name = 'ukcp18-global-attrs-ls1'
-
+    _cc_spec = 'ukcp18-global-attrs-ls1'
+    _cc_spec_version = '0.2'
 
 
     def setup(self, ds):

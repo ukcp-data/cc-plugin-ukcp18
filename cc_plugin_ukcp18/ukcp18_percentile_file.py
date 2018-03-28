@@ -21,7 +21,8 @@ import checklib.checks
 class UKCP18PercentileFileCheck(BaseNCCheck):
     register_checker = True
     name = 'ukcp18-percentile-file'
-
+    _cc_spec = 'ukcp18-percentile-file'
+    _cc_spec_version = '0.2'
 
 
     def setup(self, ds):

@@ -21,7 +21,8 @@ import checklib.checks
 class UKCP18LandMainVariableCheck(BaseNCCheck):
     register_checker = True
     name = 'ukcp18-land-main-variable'
-
+    _cc_spec = 'ukcp18-land-main-variable'
+    _cc_spec_version = '0.2'
 
 
     def setup(self, ds):
