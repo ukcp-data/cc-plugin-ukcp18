@@ -40,12 +40,22 @@ class UKCP18CoordinatesLatLonCheck(BaseNCCheck):
                                                     vocabulary_ref="")(ds)
     
     def check_cllc_003(self, ds):
-        return checklib.checks.VariableExistsInFileCheck(kwargs={'var_id': 'latitude'},
+        return checklib.checks.VariableTypeCheck(kwargs={'dtype': 'float64', 'var_id': 'longitude'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
     def check_cllc_004(self, ds):
+        return checklib.checks.VariableExistsInFileCheck(kwargs={'var_id': 'latitude'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="")(ds)
+    
+    def check_cllc_005(self, ds):
         return checklib.checks.VariableRangeCheck(kwargs={'var_id': 'latitude', 'minimum': -90.0, 'maximum': '90.'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="")(ds)
+    
+    def check_cllc_006(self, ds):
+        return checklib.checks.VariableTypeCheck(kwargs={'dtype': 'float64', 'var_id': 'latitude'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     

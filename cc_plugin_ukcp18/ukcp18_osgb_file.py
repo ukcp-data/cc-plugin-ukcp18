@@ -35,12 +35,27 @@ class UKCP18OSGBFileCheck(BaseNCCheck):
                                                     vocabulary_ref="")(ds)
     
     def check_osgbf_002(self, ds):
-        return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'projection_y_coordinate'},
+        return checklib.checks.VariableTypeCheck(kwargs={'dtype': 'float64', 'var_id': 'projection_x_coordinate'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
     def check_osgbf_003(self, ds):
+        return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'projection_y_coordinate'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="")(ds)
+    
+    def check_osgbf_004(self, ds):
+        return checklib.checks.VariableTypeCheck(kwargs={'dtype': 'float64', 'var_id': 'projection_y_coordinate'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="")(ds)
+    
+    def check_osgbf_005(self, ds):
         return checklib.checks.NCCoordVarHasBoundsCheck(kwargs={'var_id': 'time'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
+    
+    def check_osgbf_006(self, ds):
+        return checklib.checks.NCVariableMetadataCheck(kwargs={'var_id': 'transverse_mercator', 'pyessv_namespace': 'variable'},
+                                                    level="HIGH",
+                                                    vocabulary_ref="ukcp:ukcp18")(ds)
     
