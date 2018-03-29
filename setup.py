@@ -32,7 +32,9 @@ setup(name                 = "cc-plugin-ukcp18",
         ],
     entry_points         = {
         'compliance_checker.suites': [
+            'ukcp18-admin-region = cc_plugin_ukcp18.ukcp18_admin_region:UKCP18AdminRegionCheck',
             'ukcp18-coordinates-lat-lon = cc_plugin_ukcp18.ukcp18_coordinates_lat_lon:UKCP18CoordinatesLatLonCheck',
+            'ukcp18-country = cc_plugin_ukcp18.ukcp18_country:UKCP18CountryCheck',
             'ukcp18-file-info = cc_plugin_ukcp18.ukcp18_file_info:UKCP18FileInfoCheck',
             'ukcp18-file-structure = cc_plugin_ukcp18.ukcp18_file_structure:UKCP18FileStructureCheck',
             'ukcp18-global-attrs = cc_plugin_ukcp18.ukcp18_global_attrs:UKCP18GlobalAttrsCheck',
@@ -42,6 +44,7 @@ setup(name                 = "cc-plugin-ukcp18",
             'ukcp18-marine-main-variable = cc_plugin_ukcp18.ukcp18_marine_main_variable:UKCP18MarineMainVariableCheck',
             'ukcp18-osgb-file = cc_plugin_ukcp18.ukcp18_osgb_file:UKCP18OSGBFileCheck',
             'ukcp18-percentile-file = cc_plugin_ukcp18.ukcp18_percentile_file:UKCP18PercentileFileCheck',
+            'ukcp18-river-basin = cc_plugin_ukcp18.ukcp18_river_basin:UKCP18RiverBasinCheck',
             'ukcp18-sample-file = cc_plugin_ukcp18.ukcp18_sample_file:UKCP18SampleFileCheck',
         ]
     }
