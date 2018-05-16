@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-cc_plugin_ukcp18.ukcp18_file_structures
+cc_plugin_ukcp18.ukcp18_file_structure
 
 Compliance Test Suite: Check UKCP18 file structure
 """
@@ -18,10 +18,10 @@ os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 import checklib.checks
 
 
-class UKCP18FileStructuresCheck(BaseNCCheck):
+class UKCP18FileStructureCheck(BaseNCCheck):
     register_checker = True
-    name = 'ukcp18-file-structures'
-    _cc_spec = 'ukcp18-file-structures'
+    name = 'ukcp18-file-structure'
+    _cc_spec = 'ukcp18-file-structure'
     _cc_spec_version = '0.2'
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-cc_plugin_ukcp18.ukcp18_file_infos
+cc_plugin_ukcp18.ukcp18_file_info
 
 Compliance Test Suite: Check UKCP18 file info
 """
@@ -18,10 +18,10 @@ os.environ["ESSV_VOCABS_ACTIVE"] = "ukcp"
 import checklib.checks
 
 
-class UKCP18FileInfosCheck(object):
+class UKCP18FileInfoCheck(object):
     register_checker = True
-    name = 'ukcp18-file-infos'
-    _cc_spec = 'ukcp18-file-infos'
+    name = 'ukcp18-file-info'
+    _cc_spec = 'ukcp18-file-info'
     _cc_spec_version = '0.2'
     supported_ds = [GenericFile, Dataset]
 
