@@ -30,121 +30,101 @@ class UKCP18LS103Check(BaseNCCheck):
 
     
     def check_ls103_001(self, ds):
-        return checklib.checks.NetCDFFormatCheck(kwargs={'format': 'NETCDF4_CLASSIC'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_ls103_002(self, ds):
-        return checklib.checks.FileSizeCheck(kwargs={'threshold': 2, 'strictness': 'soft'},
-                                                    level="LOW",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_ls103_003(self, ds):
-        return checklib.checks.FileSizeCheck(kwargs={'threshold': 4, 'strictness': 'hard'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_ls103_004(self, ds):
-        return checklib.checks.FileNameStructureCheck(kwargs={'delimiter': '_', 'extension': '.nc'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="")(ds)
-    
-    def check_ls103_005(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': 'CF-1\\.5', 'attribute': 'Conventions'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_006(self, ds):
+    def check_ls103_002(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'source'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_007(self, ds):
+    def check_ls103_003(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': 'UKCP18', 'attribute': 'project'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_008(self, ds):
+    def check_ls103_004(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'contact'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_009(self, ds):
+    def check_ls103_005(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'references'},
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_010(self, ds):
+    def check_ls103_006(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': 'v\\d{8}', 'attribute': 'version'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_011(self, ds):
+    def check_ls103_007(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'title'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_012(self, ds):
+    def check_ls103_008(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': '\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*', 'attribute': 'creation_date'},
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_013(self, ds):
+    def check_ls103_009(self, ds):
         return checklib.checks.GlobalAttrVocabCheck(kwargs={'attribute': 'institution_id', 'vocab_lookup': 'label'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
-    def check_ls103_014(self, ds):
+    def check_ls103_010(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': 'Met Office Hadley Centre \\(MOHC\\), FitzRoy Road, Exeter, Devon, EX1 3PB, UK\\.', 'attribute': 'institution'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
-    def check_ls103_015(self, ds):
+    def check_ls103_011(self, ds):
         return checklib.checks.GlobalAttrVocabCheck(kwargs={'attribute': 'domain', 'vocab_lookup': 'canonical_name'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
-    def check_ls103_016(self, ds):
+    def check_ls103_012(self, ds):
         return checklib.checks.OneMainVariablePerFileCheck(kwargs={},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_017(self, ds):
+    def check_ls103_013(self, ds):
         return checklib.checks.MainVariableAttributeCheck(kwargs={'attr_name': '_FillValue', 'attr_value': '1e20'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_018(self, ds):
+    def check_ls103_014(self, ds):
         return checklib.checks.MainVariableTypeCheck(kwargs={'dtype': 'float32'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_019(self, ds):
+    def check_ls103_015(self, ds):
         return checklib.checks.NCMainVariableMetadataCheck(kwargs={'pyessv_namespace': 'variable', 'ignores': ['cmip6_cmor_tables_row_id', 'cmip6_name', 'cmip6_standard_name', 'notes', 'strand', 'time_averaging', 'time_step', 'um_stash']},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
-    def check_ls103_020(self, ds):
+    def check_ls103_016(self, ds):
         return checklib.checks.MainVariableAttributeCheck(kwargs={'attr_name': 'cell_methods', 'attr_value': 'time: mean'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_021(self, ds):
+    def check_ls103_017(self, ds):
         return checklib.checks.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'variable~scenario~collection~domain~resolution~coordinate~frequency~regex:^(?:\\d{2}){2,6}(?:$|-(?:\\d{2}){2,6}$)', 'extension': '.nc', 'ignore_attr_checks': ['variable']},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
-    def check_ls103_022(self, ds):
+    def check_ls103_018(self, ds):
         return checklib.checks.GlobalAttrRegexCheck(kwargs={'regex': 'land-prob', 'attribute': 'collection'},
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
     
-    def check_ls103_023(self, ds):
+    def check_ls103_019(self, ds):
         return checklib.checks.GlobalAttrVocabCheck(kwargs={'attribute': 'frequency', 'vocab_lookup': 'canonical_name'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
     
-    def check_ls103_024(self, ds):
+    def check_ls103_020(self, ds):
         return checklib.checks.NCArrayMatchesVocabTermsCheck(kwargs={'var_id': 'geo_region', 'pyessv_namespace': 'river_basin'},
                                                     level="HIGH",
                                                     vocabulary_ref="ukcp:ukcp18")(ds)
