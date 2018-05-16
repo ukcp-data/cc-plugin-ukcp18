@@ -36,6 +36,10 @@ setup(name                 = "cc-plugin-ukcp18",
             'ukcp18-ls102 = cc_plugin_ukcp18.ukcp18_ls102:UKCP18LS102Check',
             'ukcp18-ls103 = cc_plugin_ukcp18.ukcp18_ls103:UKCP18LS103Check',
             'ukcp18-ls104 = cc_plugin_ukcp18.ukcp18_ls104:UKCP18LS104Check',
+            'ukcp18-ls201 = cc_plugin_ukcp18.ukcp18_ls201:UKCP18LS201Check',
+            'ukcp18-ls202 = cc_plugin_ukcp18.ukcp18_ls202:UKCP18LS202Check',
+            'ukcp18-ls203 = cc_plugin_ukcp18.ukcp18_ls203:UKCP18LS203Check',
+            'ukcp18-ls204 = cc_plugin_ukcp18.ukcp18_ls204:UKCP18LS204Check',
             'ukcp18-ms401 = cc_plugin_ukcp18.ukcp18_ms401:UKCP18MS401Check',
         ]
     }

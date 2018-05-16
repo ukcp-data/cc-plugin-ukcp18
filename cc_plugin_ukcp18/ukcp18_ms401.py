@@ -2,7 +2,7 @@
 """
 cc_plugin_ukcp18.ukcp18_ms401
 
-Compliance Test Suite: Check structure of UKCP18 MS401 variables
+Compliance Test Suite: Check MS4.01 UKCP18 files
 """
 
 import os
